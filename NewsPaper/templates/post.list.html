@@ -10,14 +10,15 @@
 <h3>{{ time_now }}</h3>
 <hr>
 {% if post %}
-<table> <!-- Начинаем описывать таблицу -->
+    <h2>Количество новостей: {{ post|length }}</h2>
+<table width = "100%"
+       style="margin-top: 35px">
+    <tr>
 
-    <tr> <!-- Добавляем строку -->
-
-        <td> Категория </td>
-        <td> Заголовок </td>
-        <td> Дата создания </td>
-        <td> Текст </td>
+        <td><u> Категория </u></td>
+        <td><u> Заголовок </u></td>
+        <td><u> Дата создания </u></td>
+        <td><u> Текст </u></td>
 
     </tr>
 
@@ -25,14 +26,17 @@
 
     <tr>
         <td>{{ post.categoryType}}</td>
-        <td>{{ post.title }}</td>
+        <td>{{ post.title}}</td>
         <td>{{ post.dateCreation|date:'d M Y' }}</td>
-        <td>{{ post.text }}</td>
+        <td>{{ post.text |truncatewords:20 }}</td>
+        {% for cat in post.category.all %}
+        <td> cat.name </td>
+        {% endfor %}
     </tr>
     {% endfor %}
 
        </table>
 {% else %}
        <h2>Новостей нет!</h2>
-   {% endif %}
+{% endif %}
 {% endblock content %}
