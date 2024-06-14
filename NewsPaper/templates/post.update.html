@@ -1,0 +1,32 @@
+
+{% extends 'default.html' %}
+
+{% block title %}
+     Новости
+{% endblock title %}
+
+{% block content %}
+{% if post %}
+    <h3> Новость </h3>
+<table>
+    <tr>
+        <td> Категория </td>
+        <td> Заголовок </td>
+        <td> Дата создания </td>
+        <td> Текст </td>
+
+    </tr>
+    <tr>
+        <td>{{ post.categoryType }}</td>
+        <td>{{ post.title }}</td>
+        <td>{{ post.dateCreation|date:'d M Y' }}</td>
+        <td>{{ post.text }}</td>
+        {% for cat in post.category.all %}
+        <td> cat.name </td>
+        {% endfor %}
+    </tr>
+</table>
+{% else %}
+<h2>Новостей нет!</h2>
+{% endif %}
+{% endblock content %}
