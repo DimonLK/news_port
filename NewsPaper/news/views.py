@@ -1,34 +1,34 @@
-from django.views.generic import *
-from .models import *
+от django.Просмотры.универсальный Импортировать *
+от .модели Импортировать *
 
 
-class PostList(ListView):
-    model = Post
-    ordering = 'title'
-    template_name = 'post.list.html'
-    context_object_name = 'post'
-    ordering = '-dateCreation'
+сорт Список сообщений(Посмотреть список):
+    модель = Сообщение
+    заказ = 'Заголовок'
+    Имя Шаблона = 'post.list.html'
+    имя_контекстного_объекта = 'почта'
+    заказ = '-датаСоздание'
 
 
-class PostDetail(DetailView):
-    model = Post
-    template_name = 'post.detail.html'
-    context_object_name = 'post'
+сорт Подробности публикации(Подробный просмотр):
+    модель = Сообщение
+    Имя Шаблона = 'post.detail.html'
+    имя_контекстного_объекта = 'почта'
 
 
-# class PostForm(FormView):
-#     model = Post
-#     template_name = 'post.form.html'
-#     context_object_name = 'post'
-#
-#
-# class PostCreate(CreateView):
-#     model = Post
-#     template_name = 'post.create.html'
-#     context_object_name = 'post'
-#
-#
-# class PostUpdate(UpdateView):
-#     model = Post
-#     template_name = 'post.update.html'
-#     context_object_name = 'post'
+сорт Постформа(Формвиев):
+    модель = Сообщение
+    Имя Шаблона = 'post.form.html'
+    имя_контекстного_объекта = 'почта'
+
+
+сорт СообщениеСоздать(СоздатьView):
+    модель = Сообщение
+    Имя Шаблона = 'post.create.html'
+    имя_контекстного_объекта = 'почта'
+
+
+сорт СообщениеОбновление(ОбновлениеView):
+    модель = Сообщение
+    Имя Шаблона = 'post.update.html'
+    имя_контекстного_объекта = 'почта'
